@@ -2,7 +2,7 @@ import _ from "lodash";
 export const fetchData = async offset => {
 	try {
 		const response = await fetch(
-			"http://xoosha.com/ws/1/test.php?offset=" + offset
+			"https://xoosha.com/ws/1/test.php?offset=" + offset
 		);
 		return await response.json();
 	} catch (error) {
