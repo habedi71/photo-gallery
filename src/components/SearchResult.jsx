@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import NotFound from "./notfound";
 import Gallery from "./gallery";
 import { GalleryContext } from "../context/GalleryContext";
-
+import { Helmet } from "react-helmet";
 function Search() {
 	const { data, setHasMore } = useContext(GalleryContext);
 	const { term } = useParams();
@@ -19,17 +19,22 @@ function Search() {
 	}, [term]);
 
 	return (
-		<main>
-			<section className="mx-auto mb-5">
-				{result && result.length ? (
-					<div className="grid-container bt-3">
-						<Gallery data={result} />
-					</div>
-				) : (
-					<>{<NotFound term={term} />}</>
-				)}
-			</section>
-		</main>
+		<>
+			<Helmet>
+				<title>{`(${result && result.length}) Search Result`}</title>
+			</Helmet>
+			<main>
+				<section className="mx-auto mb-5">
+					{result && result.length ? (
+						<div className="grid-container bt-3">
+							<Gallery data={result} />
+						</div>
+					) : (
+						<>{<NotFound term={term} />}</>
+					)}
+				</section>
+			</main>
+		</>
 	);
 }
 

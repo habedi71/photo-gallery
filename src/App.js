@@ -5,7 +5,7 @@ import "./App.css";
 import Header from "./components/header";
 import Home from "./components/home";
 import NotFound404 from "./components/notfound404";
-import SearchResult from "./components/SearchResult";
+import SearchResult from "./components/searchresult";
 
 function App() {
 	return (
