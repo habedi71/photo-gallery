@@ -12,8 +12,12 @@ function App() {
 		<React.Fragment>
 			<Header />
 			<Routes>
-				<Route path="/search/:term" element={<SearchResult />} />
-				<Route path="/" element={<Home />} />
+				<Route
+					path="/photo-gallery/search/:term"
+					element={<SearchResult />}
+				/>
+				{/* <Route path="/" element={<Home />} /> */}
+				<Route path="/photo-gallery" element={<Home />} />
 				<Route path="*" element={<NotFound404 />} />
 			</Routes>
 		</React.Fragment>

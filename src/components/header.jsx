@@ -16,14 +16,14 @@ const Header = () => {
 
 		const location =
 			!searchString && searchString.trim() === ""
-				? "/"
-				: "/search/" + searchString;
+				? process.env.REACT_APP_HOME_PATH
+				: process.env.REACT_APP_HOME_PATH + "/search/" + searchString;
 		navigate(location);
 	};
 
 	const handleClick = () => {
 		setSearchSting("");
-		navigate("/");
+		navigate(process.env.REACT_APP_HOME_PATH);
 	};
 
 	return (
