@@ -1,38 +1,143 @@
-.App {
-  text-align: center;
+body{
+  font-size: 15px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill,236px);
+  gap: 16px 8px;
+  width: 100%;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  grid-auto-rows: min-content;
+  grid-auto-flow: row dense;
+  overflow: auto;
 }
 
-.App-link {
-  color: #61dafb;
+.item-name {
+  cursor: zoom-in;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.grid-item {
+  border-radius: 2rem;
+  padding: 1px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100px;
+  justify-content: center;
+  float: left;
+  left: 0;
+  
+}
+
+.grid-item-spinner {
+  padding: 50px;
+  grid-column-start: 1;
+  grid-column-end: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grid-item::after, .grid-item::before{
+  content:'';
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: rgba(50, 50, 50, 0.08);
+  width: 100%;
+  height: 100%;
+  border-radius: 2rem;
+  z-index: 100;
+}
+ .grid-item::before{
+  background: rgba(50, 50, 50, 0.4);
+  z-index: 200;
+  display: none;
+ }
+
+ .grid-item:hover::before{
+  background: rgba(50, 50, 50, 0.4);
+  display: block;
+  cursor: zoom-in;
+ }
+
+ .grid-item .btn.btn-danger,
+ .grid-item .btn.btn-light,
+ .grid-item p {
+   position: absolute;
+   display: none;
+   z-index: 300;
+   font-weight: 700;
+   padding: 0.3rem 0.6rem;
   }
-  to {
-    transform: rotate(360deg);
+  
+  .grid-item .btn.btn-danger {
+    border-radius: 2rem;
+    top: 1rem;
+    right: 1rem;
   }
+
+.grid-item .btn.btn-light {
+  border-radius: 2rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+ .grid-item:hover .btn.btn-danger,
+ .grid-item:hover .btn.btn-light {
+   display: block;
+   cursor: pointer;
+ }
+
+ .grid-item p {
+   display: none;
+   top: 4rem;
+   left: 0;
+   padding: 0 2rem;
+   color:rgb(250, 245, 235);
+ }
+
+ .grid-item:hover p {
+  display: block;
+}
+
+header {
+  z-index: 999;
+}
+
+form {
+  border: none !important;
+}
+
+img {
+  width: 234px !important;
+}
+
+
+
+@media (max-width: 492px) { 
+  
+  .grid-container {
+    grid-template-columns: repeat(auto-fill,180px);
+    gap: 8px 4px;
+  }
+   img {
+     width: 180px !important;
+   }
+
+ }
+
+ #notfound {
+  animation-name: anim-notfound;
+  animation-iteration-count: 2;
+    animation-duration: 0.2s;
+ }
+
+ @keyframes anim-notfound {
+  0% {opacity: 1;}
+  50% {opacity: 0.5;}
+  100% {opacity: 1;}
+}
+
+#gallery-icon {
+  width: 64px !important
 }
