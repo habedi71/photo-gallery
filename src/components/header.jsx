@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { GalleryContext } from "../context/GalleryContext";
-
+import { FiSearch } from "react-icons/fi";
 const Header = () => {
 	const { hasMore, data } = useContext(GalleryContext);
 	const [searchString, setSearchSting] = useState("");
@@ -46,9 +46,16 @@ const Header = () => {
 						>
 							Home
 						</button>
+						<button
+							onClick={handleSubmit}
+							className="input-group-text rounded-end rounded-pill"
+							id="basic-addon1"
+						>
+							<FiSearch />
+						</button>
 						<input
 							type="search"
-							className=" form-control rounded-pill"
+							className="form-control rounded-start rounded-pill"
 							placeholder="Search"
 							aria-label="Search"
 							aria-describedby="button-addon2"
